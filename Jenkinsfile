@@ -59,7 +59,9 @@ pipeline {
                 sh 'docker container rm -f mynodejsapp || true'
                 sh 'docker container run -d -p 3000:3000 --name mynodejsapp ivanpiyvikov/mynodejsapp'
             }
-         }
+        }
+    }
+ }
 
 //         stage('Deploy') {
 //            steps {
@@ -67,6 +69,6 @@ pipeline {
 //                 sh 'npm install -g forever'
 //                 sh 'forever start src/index.js'
 //            }
-        }
-    }
-}
+//         }
+//     }
+// }
