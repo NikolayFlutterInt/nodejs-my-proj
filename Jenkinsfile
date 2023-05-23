@@ -12,6 +12,11 @@ pipeline {
         githubPush()
     }
 
+    environment {
+      DOCKERHUB_CREDENTIALS = credentials('DockerHub')
+      IMAGE_NAME = 'ndimovflutter/mynodejsapp'
+    }
+
     stages {
         stage('CloneRepo') {
             steps {
@@ -30,7 +35,7 @@ pipeline {
         }
         stage('DockerLogin') {
             steps {
-                sh 'docker login -u $DOCKERHUB_CREDENTIALS -p $DOCKERHUB_CREDENTIALS'
+                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
             }
         }
         stage('DockerBuildAndTag') {
