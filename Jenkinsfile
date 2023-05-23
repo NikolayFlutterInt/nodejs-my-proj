@@ -57,7 +57,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'docker container rm -f mynodejsapp || true'
-                sh 'docker container run -d -p 3000:3000 --name mynodejsapp ivanpiyvikov/mynodejsapp'
+                sh 'docker container run -d -p 3000:3000 --name mynodejsapp ndimovflutter/mynodejsapp'
             }
         }
     }
