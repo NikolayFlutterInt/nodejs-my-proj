@@ -16,7 +16,13 @@ pipeline {
       DOCKERHUB_CREDENTIALS = credentials('DockerHub')
       IMAGE_NAME = 'ndimovflutter/mynodejsapp'
     }
+    stages {
 
+        stage('Clean') {
+            steps {
+                cleanWs()
+            }
+        }
     stages {
         stage('CloneRepo') {
             steps {
