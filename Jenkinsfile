@@ -16,14 +16,13 @@ pipeline {
       DOCKERHUB_CREDENTIALS = credentials('DockerHub')
       IMAGE_NAME = 'ndimovflutter/mynodejsapp'
     }
-    stages {
 
+    stages {
         stage('Clean') {
             steps {
                 cleanWs()
             }
         }
-    stages {
         stage('CloneRepo') {
             steps {
                 git branch: 'main', url: 'https://github.com/NikolayFlutterInt/nodejs-my-proj.git'
