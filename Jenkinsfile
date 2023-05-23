@@ -50,16 +50,23 @@ pipeline {
             }
         }
         stage('DockerPush') {
-            steps { sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
+            steps {
+                sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
             }
         }
-
         stage('Deploy') {
-           steps {
-                sh 'pkill node | true'
-                sh 'npm install -g forever'
-                sh 'forever start src/index.js'
-           }
+            steps {
+                sh 'docker container rm -f mynodejsapp || true'
+                sh 'docker container run -d -p 3000:3000 --name mynodejsapp ivanpiyvikov/mynodejsapp'
+            }
+         }
+
+//         stage('Deploy') {
+//            steps {
+//                 sh 'pkill node | true'
+//                 sh 'npm install -g forever'
+//                 sh 'forever start src/index.js'
+//            }
         }
     }
 }
