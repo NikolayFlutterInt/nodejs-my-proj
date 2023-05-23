@@ -8,7 +8,7 @@ pipeline {
         nodejs 'NodeJS 20.2.0'
     }
     triggers {
-        githubpush()
+        githubPush()
     }
 
     stages {
