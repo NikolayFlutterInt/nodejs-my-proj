@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
         </style>
       </head>
       <body>
-        <h2>This is THE END! !  !</h2>
+        <h2>This is THE END!</h2>
       </body>
     </html>
   `;
