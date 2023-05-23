@@ -7,6 +7,9 @@ pipeline {
     tools {
         nodejs 'NodeJS 20.2.0'
     }
+    triggers {
+        githubpush()
+    }
 
     stages {
         stage('Clone Repo') {
