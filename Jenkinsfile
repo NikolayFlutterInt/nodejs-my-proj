@@ -31,13 +31,7 @@ pipeline {
            }
         }
     }
-<<<<<<< HEAD
-    post {
-      always {
-         cleanWs()
-      }
-    }
 }
-=======
+
 }
->>>>>>> origin/main
+
